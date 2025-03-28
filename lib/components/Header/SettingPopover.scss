@@ -1,0 +1,84 @@
+.mytonswap-app {
+    .popover-container {
+        display: flex;
+        position: relative;
+        align-items: center;
+        z-index: 2;
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+    }
+    .modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        .popover {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            flex-direction: column;
+            gap: 0.75rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            border-top-right-radius: 1rem;
+            border-top-left-radius: 1rem;
+            background: var(--modal-background-color);
+            padding: 1rem;
+            width: 100%;
+            min-width: 15.625rem;
+            height: fit-content;
+            color: var(--text-black-color);
+            .popover-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                button {
+                    color: var(--text-black-color);
+                    font-size: var(--font-size-xl);
+                }
+            }
+            @media screen and (min-width: 768px) {
+                & {
+                    border-radius: 1rem;
+                    max-width: 32.5rem;
+                }
+            }
+        }
+    }
+}
+.wallet-profile-mts {
+    position: relative;
+    .wallet-popover {
+        position: absolute;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 1rem;
+        background: var(--modal-background-color);
+        padding: 0.25rem;
+        width: 100%;
+        min-width: 15.625rem;
+        height: 100%;
+        height: fit-content;
+        color: var(--text-black-color);
+    }
+}
+.mytonswap-app.rtl {
+    .popover {
+        right: auto;
+        left: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mytonswap-app {
+        .popover {
+            min-width: 20rem;
+        }
+    }
+}

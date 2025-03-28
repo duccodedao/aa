@@ -1,0 +1,157 @@
+.mytonswap-app {
+    .confirm-modal-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        width: 100%;
+        height: 100%;
+        .confirm-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            width: 100%;
+            .title {
+                opacity: 0.5;
+                color: var(--text-black-color);
+                font-weight: bold;
+            }
+            .icon {
+                cursor: pointer;
+                color: var(--text-black-color);
+                font-size: var(--font-size-xl);
+            }
+        }
+        .confirm-modal-images {
+            display: flex;
+            align-items: center;
+            padding-top: 0.25rem;
+            .pay-image {
+                transform: translateX(0.75rem);
+                border-width: 5px;
+                border-style: solid;
+                border-color: var(--modal-background-color);
+                border-radius: 9999px;
+                background-size: contain !important;
+                width: 4rem;
+                height: 4rem;
+            }
+            .receive-image {
+                transform: translateX(-0.2rem);
+                border-width: 5px;
+                border-style: solid;
+                border-color: var(--modal-background-color);
+                border-radius: 9999px;
+                background-size: contain !important;
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+        .confirm-modal-change-rate {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.7;
+            color: var(--text-black-color);
+            font-weight: bold;
+            text-align: center;
+            .change-icon {
+                transform: rotate(90deg);
+                opacity: 0.6;
+                font-size: 0.75rem;
+            }
+            .rate {
+                opacity: 0.6;
+                font-size: 0.75rem;
+            }
+        }
+
+        .confirm-modal-detail {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 0.125rem;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            width: 100%;
+            height: fit-content;
+            font-size: var(--font-size-lg);
+            .min-receive {
+                display: flex;
+                gap: 0.25rem;
+            }
+            .best-route {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.25rem;
+            }
+        }
+        .confirm-modal-button-container {
+            margin-top: 0.125rem;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            width: 100%;
+            .confirm-button {
+                cursor: pointer;
+                border-radius: 0.75rem;
+                background: var(--primary-color);
+                width: 100%;
+                height: 3.25rem;
+                color: var(--text-white-color);
+                font-size: var(--font-size-base);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mytonswap-app {
+        .confirm-modal-container {
+            .confirm-modal-header {
+                .title {
+                    font-size: 1.25rem;
+                }
+            }
+            .confirm-modal-images {
+                .pay-image {
+                    width: 4rem;
+                    height: 4rem;
+                }
+                .receive-image {
+                    width: 4rem;
+                    height: 4rem;
+                }
+            }
+            .confirm-modal-change-rate {
+                .change-icon {
+                    font-size: 1rem;
+                }
+                .rate {
+                    font-size: 1rem;
+                }
+            }
+            .confirm-modal-detail {
+                font-size: 1rem;
+                .min-receive {
+                    gap: 0.5rem;
+                }
+                .best-route {
+                    gap: 0.5rem;
+                }
+            }
+            .confirm-modal-button-container {
+                .confirm-button {
+                    height: 3.25rem;
+                    font-size: var(--font-size-base);
+                }
+            }
+        }
+    }
+}

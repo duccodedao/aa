@@ -1,0 +1,333 @@
+.mytonswap-app {
+    .card-dialog-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999999999999999999999999;
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .card-dialog {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            flex-direction: column;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+            border-top-right-radius: 1rem;
+            border-top-left-radius: 1rem;
+            background: var(--modal-background-color);
+            padding: 0.75rem 0.75rem;
+            padding-top: 1rem;
+            padding-bottom: 0.5rem;
+            width: 100%;
+            min-height: 92.5dvh;
+            max-height: 92.5dvh;
+            overflow-y: auto;
+
+            @media (min-width: 768px) {
+                box-shadow: 0 0px 10px rgba(0, 0, 0, 0.05);
+                border-radius: 1rem;
+                width: 90%;
+                max-width: 34.375rem;
+                height: auto;
+                min-height: 21.875rem;
+                max-height: 70dvh;
+            }
+
+            .no-token-found {
+                display: flex;
+                flex-grow: 1;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1rem;
+                height: 100%;
+                color: var(--text-black-color);
+                span {
+                    opacity: 0.7;
+                    font-size: var(--font-size-xs);
+                }
+            }
+
+            .dialog-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: var(--text-black-color);
+                font-weight: 700;
+                font-size: var(--font-size-xl);
+                .card-dialog-close {
+                    display: none;
+                    opacity: 0.5;
+                    color: var(--text-black-color);
+                    font-size: var(--font-size-xl);
+                }
+            }
+
+            .dialog-search {
+                display: flex;
+                align-items: center;
+                transition: all 0.2s ease-in-out;
+                margin-top: 1.5rem;
+                margin-bottom: 0.5rem;
+                border: 1px solid var(--border-color);
+                border-radius: 0.75rem;
+                background: var(--input-card-color);
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+                width: 100%;
+                height: 3.25rem;
+
+                &:hover {
+                    background: var(--input-token-color);
+                }
+
+                &:focus-within {
+                    border-color: var(--primary-color);
+                }
+
+                .dialog-search-icon {
+                    color: var(--text-black-color);
+                    font-size: var(--font-size-lg);
+                }
+
+                .dialog-search-input {
+                    outline: none;
+                    background: transparent;
+                    padding-right: 0.25rem;
+                    padding-left: 0.25rem;
+                    width: 100%;
+                    height: 100%;
+                    color: var(--text-black-color);
+                    font-size: 1rem;
+                }
+            }
+            .dialog-tokens-container {
+                flex-grow: 1;
+                height: 50vh;
+                overflow-y: scroll;
+            }
+            .infinite-scroll-loading {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 2.5rem;
+                color: var(--text-black-color);
+                font-size: 1.25rem;
+            }
+            .dialog-community-modal {
+                display: flex;
+                flex-grow: 1;
+                flex-direction: column;
+                height: 100%;
+            }
+            .community-modal-container {
+                display: flex;
+                flex-grow: 1;
+                flex-direction: column;
+                gap: 0.5rem 0.5rem;
+            }
+            .community-modal-warning {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 0.25rem;
+                margin-bottom: 0.25rem;
+                border-radius: 0.75rem;
+                background: var(--input-card-color);
+                padding: 0.5rem;
+                color: var(--text-black-color);
+                .icon {
+                    color: #f59e00;
+                    font-size: 1.875rem;
+                }
+                .title {
+                    font-weight: 700;
+                    font-size: 1rem;
+                }
+                .description {
+                    padding-right: 1.25rem;
+                    padding-left: 1.25rem;
+                    font-size: 0.875rem;
+                    text-align: center;
+                }
+            }
+
+            .accept-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 0.75rem;
+                background: var(--primary-color);
+                width: 100%;
+                height: 2.5rem;
+                color: var(--text-black-color);
+                font-size: 0.875rem;
+            }
+            .pinned-token-container {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.75rem 0;
+                .pinned-token {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.25rem;
+                    opacity: 0.8;
+                    transition: all 0.3s ease-in-out;
+                    cursor: pointer;
+                    border-radius: 9999rem;
+                    background: var(--light-shade-color);
+                    padding: 0.25rem;
+                    padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+                    color: var(--text-black-color);
+                    font-size: 0.9rem;
+                    &:hover {
+                        opacity: 1;
+                    }
+                    .pinned-token-image {
+                        border-radius: 9999px;
+                        background-size: contain !important;
+                        width: 1.25rem;
+                        height: 1.25rem;
+                    }
+                }
+            }
+            .close-footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                padding-top: 0.5rem;
+                font-size: 0.875rem;
+
+                @media screen and (min-width: 768px) {
+                    display: none;
+                }
+
+                .close-footer-button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: all 0.3s ease-in-out;
+                    border-radius: 0.75rem;
+                    background: var(--secondary-color);
+                    width: 100%;
+                    height: 3rem;
+                    color: var(--text-black-color);
+                    text-align: center;
+                    &:active {
+                        scale: 0.95;
+                    }
+                }
+            }
+
+            // Tab
+            .tab-container {
+                display: flex;
+                align-items: center;
+                gap: 1.25rem;
+                margin-top: 0.75rem;
+                margin-bottom: 0.5rem;
+                border-bottom: 1px solid var(--border-color);
+                padding-right: 0.75rem;
+                padding-bottom: 0.5rem;
+                padding-left: 0.75rem;
+                width: 100%;
+                color: var(--text-black-color);
+                font-weight: 300;
+                font-size: var(--font-size-lg);
+                .tab-item {
+                    position: relative;
+                    transition: all 0.3s ease-in-out;
+                    background: transparent;
+                    color: var(--text-black-color);
+                    font-size: var(--font-size-base);
+                    &.active {
+                        color: var(--primary-color);
+                        font-weight: 600;
+                    }
+                    .tab-item-cursor {
+                        position: absolute;
+                        bottom: -9px;
+                        background: var(--primary-color);
+                        width: 100%;
+                        height: 1px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mytonswap-app {
+        .card-dialog-container {
+            .card-dialog {
+                .no-token-found {
+                    font-size: var(--font-size-lg);
+                    span {
+                        font-size: var(--font-size-sm);
+                    }
+                }
+                .dialog-head {
+                    font-size: var(--font-size-xl);
+                    .card-dialog-close {
+                        display: block;
+                    }
+                }
+                .dialog-search {
+                    margin-top: 0.5rem;
+                    height: 3rem;
+                    font-size: var(--font-size-xl);
+                    .dialog-search-icon {
+                        opacity: 0.5;
+                        color: var(--text-black-color);
+                        font-size: var(--font-size-xl);
+                    }
+
+                    .dialog-search-input {
+                        font-size: var(--font-size-base);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .mytonswap-app {
+        .card-dialog-container {
+            .card-dialog {
+                .no-token-found {
+                    font-size: var(--font-size-lg);
+                    span {
+                        font-size: var(--font-size-sm);
+                    }
+                }
+                .dialog-head {
+                    margin-bottom: 0.5rem;
+                    font-size: var(--font-size-xl);
+                    .card-dialog-close {
+                        opacity: 0.5;
+                        color: var(--text-black-color);
+                        font-size: var(--font-size-2xl);
+                    }
+                }
+                .dialog-search {
+                    height: 3.5rem;
+
+                    font-size: var(--font-size-xl);
+
+                    .dialog-search-input {
+                        font-size: var(--font-size-lg);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,287 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --mts-primary-50: 233 251 240;
+    --mts-primary-100: 207 247 222;
+    --mts-primary-200: 159 239 188;
+    --mts-primary-300: 111 230 155;
+    --mts-primary-400: 64 222 122;
+    --mts-primary-500: 34 197 94;
+    --mts-primary-600: 27 157 75;
+    --mts-primary-700: 20 117 56;
+    --mts-primary-800: 13 78 37;
+    --mts-primary-900: 7 39 19;
+    --mts-primary-950: 4 22 10;
+
+    --mts-dark-50: 242 242 243;
+    --mts-dark-100: 226 226 228;
+    --mts-dark-200: 199 199 204;
+    --mts-dark-300: 170 170 177;
+    --mts-dark-400: 141 141 150;
+    --mts-dark-500: 113 113 123;
+    --mts-dark-600: 90 90 98;
+    --mts-dark-700: 68 68 74;
+    --mts-dark-800: 46 46 50;
+    --mts-dark-900: 22 22 24;
+    --mts-dark-950: 12 12 13;
+}
+
+.mts-default {
+    --border-color: #f4f4f5;
+    --primary-color: #22c55e;
+    --secondary-color: #ebebeb;
+    --background-color: #ffffff;
+    --modal-background-color: #ffffff;
+    --swap-container-background: #f4f4f5;
+    --swap-container-border-color: #ffffff;
+    --input-card-color: #ffffff;
+    --input-card-pay-color: #ffffff;
+    --input-card-receive-color: #d0d5dd;
+    --input-token-color: #f4f4f5;
+    --change-direction-background-color: #22c55e;
+    --change-direction-icon-color: #f4f4f5;
+    --light-shade-color: #f4f4f5;
+    --slippage-box-color: #71717a;
+    --text-black-color: #000000;
+    --text-white-color: #ffffff;
+    --text-fade-color: #9caacb;
+    --skeleton-shine-color: #9c9c9c;
+    --price-impact-color: #e64646;
+}
+
+.mts-dark {
+    --border-color: #344054;
+    --primary-color: #16a34a;
+    --secondary-color: #283241;
+    --background-color: #101828;
+    --modal-background-color: #1d2939;
+    --swap-container-background-color: #101828;
+    --swap-container-border-color: #1d293900;
+    --input-card-pay-color: #09090b;
+    --input-card-receive-color: #344054;
+    --input-card-color: #101828;
+    --input-token-color: #101828;
+    --change-direction-background-color: #101828;
+    --change-direction-icon-color: #16a34a;
+    --light-shade-color: #1d2939;
+    --slippage-box-color: #344054;
+    --text-black-color: #ffffff;
+    --text-white-color: #ffffff;
+    --text-fade-color: #687085;
+    --skeleton-shine-color: #585959;
+}
+
+.mts-ton-jiggle {
+    --border-color: #004a6533;
+    --primary-color: #177594;
+    --secondary-color: #283241;
+    --background-color: #181f34;
+    --modal-background-color: #101828;
+    --swap-container-background-color: #101828;
+    --swap-container-border-color: #1d293900;
+    --input-card-pay-color: #09090b;
+    --input-card-receive-color: #30475b;
+    --input-card-color: #181f34;
+    --input-token-color: #1d2939;
+    --change-direction-background-color: #101828;
+    --change-direction-icon-color: #177594;
+    --light-shade-color: #193349;
+    --slippage-box-color: #d1d1e0;
+    --text-black-color: #ffffff;
+    --text-white-color: #ffffff;
+    --text-fade-color: #6b7280;
+    --skeleton-shine-color: #585959;
+}
+
+* {
+    font-family: 'IBM Plex Mono', sans-serif !important;
+    /* font-family: 'Fira Mono', sans-serif !important; */
+    -webkit-tap-highlight-color: transparent;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@keyframes loading {
+    to {
+        background-position-x: -20%;
+    }
+}
+
+:where([data-skeleton]) {
+    /* These will need to be intents (ie, dark mode), perhaps new global intents */
+    --skeleton-shine: white;
+    background-image: linear-gradient(
+        100deg,
+        transparent 40%,
+        color-mix(in srgb, var(--skeleton-shine), transparent 50%) 50%,
+        transparent 60%
+    ) !important;
+    background-size: 200% 100%;
+    background-color: var(--skeleton-bg) !important;
+    background-position-x: 120%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :where([data-skeleton]) {
+        animation: 2s loading ease-in-out infinite;
+        background-position-x: 180%;
+    }
+}
+
+:where([data-skeleton][style*='--skeleton-lines']) {
+    --l-h: 1lh;
+    --l-gap: 1ex;
+    mask: linear-gradient(
+            #000 0 var(--l-h),
+            transparent var(--l-h) calc(var(--l-h) + var(--l-gap))
+        )
+        0 0/100% calc(var(--l-h) + var(--l-gap));
+    min-height: calc(
+        var(--skeleton-lines) * var(--l-h) + (var(--skeleton-lines) - 1) *
+            var(--l-gap)
+    );
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: var(--thumb-scrollbar);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: var(--thumb-scrollbar);
+}
+
+._refresher_wadtj_43 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.icon_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: color 0.25s ease-in-out;
+    width: 100%;
+    height: auto;
+    color: #919191;
+}
+
+.refresh_icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: color 0.25s ease-in-out;
+    width: 100%;
+    height: auto;
+    color: #919191;
+}
+
+.icon_overlay.overlay {
+    color: rgb(var(--mts-primary-500));
+}
+
+.active {
+    cursor: pointer;
+}
+
+.icon_overlay.progressing {
+    animation-duration: 30000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-name: loading_refresh_icon;
+}
+
+.icon_overlay.waiting {
+    animation-duration: 30000ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-name: waiting_refresh_icon;
+}
+
+@keyframes loading_refresh_icon {
+    0% {
+        clip-path: polygon(50% 50%, 150% 50%, 150% 50%);
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 150% 50%, 50% 150%);
+    }
+
+    25.000001% {
+        clip-path: polygon(50% 50%, 150% 50%, 50% 150%, 50% 150%);
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 150% 50%, 50% 150%, -50% 50%);
+    }
+
+    50.000001% {
+        clip-path: polygon(50% 50%, 150% 50%, 50% 150%, -50% 50%, -50% 50%);
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 150% 50%, 50% 150%, -50% 50%, 50% -50%);
+    }
+
+    75.000001% {
+        clip-path: polygon(
+            50% 50%,
+            150% 50%,
+            50% 150%,
+            -50% 50%,
+            50% -50%,
+            50% -50%
+        );
+    }
+
+    97.5% {
+        clip-path: polygon(
+            50% 50%,
+            150% 50%,
+            50% 150%,
+            -50% 50%,
+            50% -50%,
+            150% 50%
+        );
+    }
+
+    to {
+        clip-path: polygon(
+            50% 50%,
+            150% 50%,
+            50% 150%,
+            -50% 50%,
+            50% -50%,
+            150% 50%
+        );
+    }
+}
+
+@keyframes waiting_refresh_icon {
+    0% {
+        color: #6c6c6c;
+    }
+
+    50% {
+        color: #f2f2f2;
+    }
+
+    to {
+        color: #6c6c6c;
+    }
+}

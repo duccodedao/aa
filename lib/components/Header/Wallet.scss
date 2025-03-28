@@ -1,0 +1,113 @@
+.mytonswap-app {
+    .wallet-card {
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        .title {
+            opacity: 0.75;
+            font-size: 0.7rem;
+        }
+        .wallet-content {
+            display: flex;
+            flex-direction: column;
+            .balance-title {
+                margin-top: 0.5rem;
+                font-size: 0.8rem;
+            }
+            .balance-amount {
+                margin: 0.5rem 0;
+                color: var(--primary-color);
+                font-weight: 900;
+                font-size: 1.25rem;
+            }
+            .address {
+                display: flex;
+                opacity: 0.75;
+                border-radius: 0.25rem;
+                background: var(--secondary-color);
+                padding: 0.25rem 0.5rem;
+                width: fit-content;
+                font-size: 0.8rem;
+            }
+            .address-section {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+
+                .address {
+                    display: flex;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: 0.75;
+                    border-radius: 0.5rem;
+                    width: fit-content;
+                    height: 2rem;
+                    font-size: 0.8rem;
+                }
+                .wallet-icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: 0.75;
+                    cursor: pointer;
+                    border-radius: 0.5rem;
+                    background: var(--secondary-color);
+                    width: 2rem;
+                    height: 2rem;
+                    color: var(--text-black-color);
+                    font-size: var(--font-size-xs);
+                    &:disabled {
+                        opacity: 0.5;
+                        cursor: not-allowed;
+                    }
+                }
+            }
+            .disconnect-wallet {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.3s ease-in-out;
+                cursor: pointer;
+                margin-top: 0.5rem;
+                border-radius: 0.5rem;
+                background: var(--secondary-color);
+                height: 2.5rem;
+                color: var(--text-black-color);
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mytonswap-app {
+        .wallet-card {
+            .title {
+                font-size: var(--font-size-xs);
+            }
+            .wallet-content {
+                .balance-title {
+                    font-size: var(--font-size-sm);
+                }
+                .balance-amount {
+                    font-size: var(--font-size-2xl);
+                }
+                .address-section {
+                    .address {
+                        height: 2.5rem;
+                        font-size: var(--font-size-base);
+                    }
+                    .wallet-icon {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        font-size: var(--font-size-xs);
+                    }
+                }
+                .disconnect-wallet {
+                    height: 3rem;
+                    font-size: var(--font-size-sm);
+                }
+            }
+        }
+    }
+}

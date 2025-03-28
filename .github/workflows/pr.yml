@@ -1,0 +1,32 @@
+name: Pull Request
+
+on:
+    pull_request:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        name: Run build on pr
+        env:
+            SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        steps:
+            - uses: actions/checkout@v3
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20.x'
+            - name: Install pnpm
+              run: npm install -g pnpm
+            - run: pnpm install
+            - name: Install Cypress
+              run: pnpx cypress install
+            - name: Build Storybook
+              run: pnpm run build-storybook
+            - name: Run Cypress tests
+              run: |
+                  npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+                    "npx http-server storybook-static --port 6006 --silent" \
+                    "npx wait-on tcp:6006 && pnpm cypress:run"
+            - run: pnpm run build

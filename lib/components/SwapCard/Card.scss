@@ -1,0 +1,147 @@
+.mytonswap-app {
+    .swapcard-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-size: var(--font-size-base);
+        .card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 0.25rem;
+            padding-left: 0.25rem;
+            .card-title {
+                opacity: 0.7;
+                color: var(--text-black-color);
+            }
+
+            .max-button {
+                cursor: pointer;
+                color: var(--text-black-color);
+                .max-text {
+                    color: var(--primary-color);
+                }
+                &.pay {
+                    cursor: auto;
+                }
+            }
+        }
+
+        .card-content {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.25rem;
+            margin-top: 0.875rem;
+            border-radius: 0.75rem;
+            background: var(--input-card-color);
+            padding: 1rem 1rem;
+            width: 100%;
+            &.pay {
+                background: var(--input-card-pay-color);
+            }
+            &.receive {
+                background: var(--input-card-receive-color);
+            }
+            .card-inputs {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 0.25rem;
+                width: 100%;
+                .card-input {
+                    outline: none;
+                    background: transparent;
+                    height: 1.875rem;
+                    color: var(--text-black-color);
+                    font-weight: 700;
+                    font-size: var(--font-size-2xl);
+                    font-family: inherit;
+                }
+                .card-input-loading {
+                    border-radius: 0.75rem;
+                    width: 6rem;
+                    height: 1.875rem;
+                }
+                .card-rate {
+                    display: flex;
+                    align-items: center;
+                    opacity: 0.5;
+                    height: 1.25rem;
+                    color: var(--text-black-color);
+                    font-size: var(--font-size-base);
+                    font-family: inherit;
+                    text-align: left;
+                }
+                .card-rate-loading {
+                    border-radius: 0.75rem;
+                    width: 3rem;
+                    height: 1.25rem;
+                }
+            }
+            .card-button {
+                display: flex;
+                align-items: center;
+
+                .selection-box {
+                    border-radius: 9999px;
+                    background-size: contain !important;
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+        }
+    }
+}
+
+.mytonswap-app.rtl {
+    .swapcard-card {
+        .card-content {
+            .card-inputs {
+                .card-rate {
+                    font-size: var(--font-size-xs);
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mytonswap-app {
+        .swapcard-card {
+            gap: 0px;
+            .card-head {
+                font-size: var(--font-size-base);
+            }
+            .card-content {
+                .card-button {
+                    .selection-box {
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .mytonswap-app {
+        .swapcard-card {
+            .card-content {
+                padding: 1rem 1rem;
+                .card-inputs {
+                    .card-input {
+                        font-size: var(--font-size-2xl);
+                    }
+                    .card-input-loading {
+                        width: 10rem;
+                    }
+                    .card-rate-loading {
+                        width: 5rem;
+                    }
+                }
+            }
+        }
+    }
+}

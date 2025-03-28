@@ -1,0 +1,125 @@
+.mytonswap-app {
+    .detail-accordion-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0.75rem;
+        border-radius: 0.75rem;
+        background: var(--input-token-color);
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+
+        width: 100%;
+        min-height: 3rem;
+        color: var(--text-black-color);
+
+        .detail-accordion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            min-height: 3.25rem;
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+
+            .finding {
+                display: flex;
+                column-gap: 0.25rem;
+                align-items: center;
+            }
+            .icon {
+                transition: all 0.2s ease-in-out;
+                font-size: 1.125rem;
+                &.is-open {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        .detail-accordion-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            width: 100%;
+            overflow: hidden;
+            .details-inner-container {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+                padding: 0.25rem;
+                padding-bottom: 1rem;
+            }
+
+            .slippage-box {
+                border-radius: 0.375rem;
+                background: var(--slippage-box-color);
+                padding: 0.25rem 0.5rem;
+                color: var(--text-white-color);
+            }
+            .route-container {
+                display: flex;
+                justify-content: center;
+                gap: 0.125rem;
+                .dex {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.25rem;
+                    .image {
+                        background-size: contain !important;
+                        width: 0.75rem;
+                        height: 0.75rem;
+                    }
+                }
+                .route-icon {
+                    font-size: var(--font-size-xs);
+                }
+                .route-view-token {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.125rem;
+                }
+            }
+        }
+    }
+}
+
+.mytonswap-app.rtl {
+    .detail-accordion-container {
+        .one-pay {
+            direction: ltr;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mytonswap-app {
+        .detail-accordion-container {
+            padding-right: 1rem;
+            padding-left: 1rem;
+            font-size: var(--font-size-sm);
+            .detail-accordion {
+                min-height: 3.5rem;
+                font-size: var(--font-size-sm);
+                .finding {
+                    column-gap: 0.5rem;
+                }
+            }
+            .detail-accordion-content {
+                gap: 0.5rem;
+                .slippage-box {
+                    padding: 0.25rem 0.5rem;
+                }
+                .route-container {
+                    gap: 0.5rem;
+                    .dex {
+                        gap: 0.5rem;
+                        .image {
+                            width: 1rem;
+                            height: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,116 @@
+.mytonswap-app {
+    .inprogress-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            opacity: 0.7;
+            cursor: pointer;
+            color: var(--text-black-color);
+            font-size: 1.25rem;
+        }
+        .inprogress-modal-images {
+            display: flex;
+            align-items: center;
+            padding-top: 0.25rem;
+            .pay-image {
+                transform: translateX(0.4rem);
+                border-width: 5px;
+                border-style: solid;
+                border-color: var(--modal-background-color);
+                border-radius: 9999px;
+                background-size: contain !important;
+                width: 4rem;
+                height: 4rem;
+            }
+            .receive-image {
+                transform: translateX(-0.4rem);
+                border-width: 5px;
+                border-style: solid;
+                border-color: var(--modal-background-color);
+                border-radius: 9999px;
+                background-size: contain !important;
+
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+        .inprogress-modal-change-rate {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.7;
+            color: var(--text-black-color);
+            font-weight: bold;
+            font-size: var(--font-size-lg);
+            text-align: center;
+            .change-icon {
+                transform: rotate(90deg);
+                opacity: 0.6;
+                font-size: var(--font-size-sm);
+            }
+            .rate {
+                opacity: 0.6;
+                font-size: var(--font-size-sm);
+            }
+        }
+        .description {
+            margin-top: 1rem;
+            color: var(--text-black-color);
+            font-weight: bold;
+            font-size: var(--font-size-xl);
+            text-align: center;
+        }
+        .description-2 {
+            color: var(--text-black-color);
+            font-size: var(--font-size-base);
+        }
+        .loading-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.25rem;
+            width: 100%;
+            color: var(--text-black-color);
+            font-size: 1.875rem;
+            .icon {
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mytonswap-app {
+        .inprogress-container {
+            .inprogress-modal-images {
+                .pay-image {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+                .receive-image {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
+            }
+            .inprogress-modal-change-rate {
+                .change-icon {
+                    font-size: 0.875rem;
+                }
+                .rate {
+                    font-size: 0.875rem;
+                }
+            }
+
+            .loading-icon {
+                margin-top: 1rem;
+                font-size: 2.5rem;
+            }
+        }
+    }
+}

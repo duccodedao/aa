@@ -7,25 +7,33 @@
     <title>MyTonSwap Widget</title>
     <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@mytonswap/widget@latest/dist/cdn/mytonswap-widget.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    
     <script async src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         :root {
-            --border-color: #444;
-            --primary-color: #00b894;
-            --secondary-color: #2d3436;
-            --background-color: #222;
-            --modal-background-color: #333;
-            --swap-container-background: #2d3436;
-            --swap-container-border-color: #00b894;
-            --input-card-color: #636e72;
-            --input-token-color: #b2bec3;
-            --change-direction-background-color: #00b894;
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --modal-background-color: #34495e;
+            --swap-container-background: #2c3e50;
+            --swap-container-border-color: #3498db;
+            --input-card-color: #ecf0f1;
+            --input-token-color: #7f8c8d;
+            --change-direction-background-color: #3498db;
             --change-direction-icon-color: #fff;
-            --text-black-color: #ecf0f1;
-            --text-white-color: #fff;
+            --text-black-color: #34495e;
+            --text-white-color: #ffffff;
             --text-fade-color: #bdc3c7;
             --price-impact-color: #e74c3c;
+            --header-bg-color: #2c3e50;
+            --footer-bg-color: #34495e;
+            --button-bg-color: #3498db;
+            --button-hover-bg-color: #2980b9;
+            --input-bg-color: #ecf0f1;
+            --input-border-color: #bdc3c7;
+            --input-focus-border-color: #3498db;
+            --input-placeholder-color: #7f8c8d;
         }
         body {
             font-family: 'Poppins', sans-serif;
@@ -38,10 +46,6 @@
             padding-top: 20px;
             color: var(--text-black-color);
         }
-        .container {
-            width: 90%;
-            max-width: 500px;
-        }
         .user-info {
             display: flex;
             align-items: center;
@@ -51,6 +55,8 @@
             border-radius: 12px;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
+            width: 90%;
+            max-width: 500px;
         }
         .user-info img {
             width: 70px;
@@ -71,27 +77,38 @@
             color: var(--text-fade-color);
         }
         #swap-widget {
-            width: 100%;
+            width: 90%;
+            max-width: 500px;
             padding: 20px;
             background: var(--swap-container-background);
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             border: 2px solid var(--swap-container-border-color);
         }
+        button {
+            background-color: var(--button-bg-color);
+            color: var(--text-white-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: var(--button-hover-bg-color);
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="user-info">
-            <img id="avatar" src="default-avatar.png" alt="Avatar">
-            <div>
-                <span id="username">@username</span>
-                <small id="full-name">Full Name</small>
-            </div>
+    <div class="user-info">
+        <img id="avatar" src="default-avatar.png" alt="Avatar">
+        <div>
+            <span id="username">@username</span>
+            <small id="full-name">Full Name</small>
         </div>
-        <div id="swap-widget"></div>
     </div>
+    <div id="swap-widget"></div>
     
     <script type="module">
         const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
